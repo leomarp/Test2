@@ -23,6 +23,14 @@ public class RestApi extends BaseControlador {
                  * Ejemplo de una API REST, implementando el CRUD
                  * ir a
                  */
+                after("/*", ctx -> {
+                    ctx.header("Access-Control-Allow-Origin", "*");
+                    ctx.header("Access-Control-Allow-Methods", "*");
+                    ctx.header("Access-Control-Allow-Headers", "*");
+//                ctx.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+//                ctx.header("Access-Control-Allow-Headers", "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization,Cookie");
+                });
+
                 path("/formulario", () -> {
                     after(ctx -> {
                         ctx.header("Content-Type", "application/json");

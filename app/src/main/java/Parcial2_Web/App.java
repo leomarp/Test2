@@ -40,7 +40,7 @@ public class App {
             conf.wsFactoryConfig(ws -> { ws.getPolicy().setMaxTextMessageSize(5000000); });
             conf.registerPlugin(new RouteOverviewPlugin("rutas")); //Aplicamos el plugin de rutas
            // conf.addStaticFiles("src/main/resources/publico", Location.EXTERNAL); //desde la carpeta de resources
-            
+               conf.enableCorsForAllOrigins();
             });
 
             new SoapControlador(app).aplicarRutas();
